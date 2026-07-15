@@ -1,0 +1,8 @@
+---
+import Button from "../components/ui/Button.astro";
+import Card from "../components/ui/Card.astro";
+import Input from "../components/ui/Input.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
+import DashboardLayout from "../layouts/DashboardLayout.astro";
+---
+<DashboardLayout title="Paramètres"><PageHeader title="Paramètres" description="Configurez votre profil et vos préférences." /><Card class="mt-6 max-w-2xl"><form class="space-y-4"><Input id="name" label="Nom" value="Andrix Ng" /><Input id="email" label="Adresse e-mail" type="email" value="andrix@example.com" /><Button type="submit">Enregistrer</Button></form></Card></DashboardLayout>

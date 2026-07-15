@@ -1,0 +1,11 @@
+---
+import { Menu, Search } from "@lucide/astro";
+---
+
+<header class="flex h-16 items-center justify-between border-b bg-surface px-4 sm:px-6">
+	<button type="button" class="rounded-lg p-2 text-muted hover:bg-slate-100 lg:hidden" aria-label="Ouvrir le menu"><Menu size={20} aria-hidden="true" /></button>
+	<div class="ml-auto flex items-center gap-3">
+		<button type="button" class="rounded-lg p-2 text-muted hover:bg-slate-100" aria-label="Rechercher"><Search size={20} aria-hidden="true" /></button>
+		<div class="grid size-9 place-items-center rounded-full bg-primary text-sm font-semibold text-white">AN</div>
+	</div>
+</header>

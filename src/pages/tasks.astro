@@ -1,0 +1,8 @@
+---
+import DataTable from "../components/dashboard/DataTable.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
+import { tasks } from "../data/tasks";
+import DashboardLayout from "../layouts/DashboardLayout.astro";
+const columns = [{ key: "title", label: "Tâche" }, { key: "assignee", label: "Responsable" }, { key: "dueDate", label: "Échéance" }, { key: "priority", label: "Priorité" }, { key: "status", label: "Statut" }];
+---
+<DashboardLayout title="Tâches"><PageHeader title="Tâches" description="Organisez le travail de votre équipe." /><div class="mt-6"><DataTable {columns} rows={tasks} caption="Liste des tâches" /></div></DashboardLayout>

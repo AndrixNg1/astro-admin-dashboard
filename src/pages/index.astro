@@ -1,5 +1,7 @@
 ---
 import PageHeader from '../components/ui/PageHeader.astro';
+import StatCard from '../components/dashboard/StatCard.astro';
+import { analyticsMetrics } from '../data/analytics';
 import DashboardLayout from '../layouts/DashboardLayout.astro';
 ---
 
@@ -8,4 +10,7 @@ import DashboardLayout from '../layouts/DashboardLayout.astro';
 		title="Vue d’ensemble"
 		description="Suivez les indicateurs clés de votre activité."
 	/>
+	<div class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+		{analyticsMetrics.map((metric) => <StatCard {...metric} />)}
+	</div>
 </DashboardLayout>
