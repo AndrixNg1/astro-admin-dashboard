@@ -1,8 +1,28 @@
 ---
 import type { Activity } from "../../types";
-interface Props { activities: Activity[]; }
-const { activities } = Astro.props;
+interface Props {
+  activities: Activity[];
+}
+const { activities }: Props = Astro.props;
 ---
+
 <ol class="space-y-5">
-	{activities.map((activity) => <li class="flex gap-3"><span class="mt-1.5 size-2 shrink-0 rounded-full bg-primary"></span><div><p class="text-sm font-semibold">{activity.title}</p><p class="mt-1 text-sm text-muted">{activity.description}</p><time class="mt-1 block text-xs text-slate-400">{activity.time}</time></div></li>)}
+  {
+    activities.map((activity) => (
+      <li class="flex gap-3">
+        <>
+          <span class="mt-1.5 size-2 shrink-0 rounded-full bg-primary" />
+          <div>
+            <>
+              <p class="text-sm font-semibold">{activity.title}</p>
+              <p class="mt-1 text-sm text-muted">{activity.description}</p>
+              <time class="mt-1 block text-xs text-slate-400">
+                {activity.time}
+              </time>
+            </>
+          </div>
+        </>
+      </li>
+    ))
+  }
 </ol>

@@ -3,6 +3,20 @@ import DataTable from "../components/dashboard/DataTable.astro";
 import PageHeader from "../components/ui/PageHeader.astro";
 import { projects } from "../data/projects";
 import DashboardLayout from "../layouts/DashboardLayout.astro";
-const columns = [{ key: "name", label: "Projet" }, { key: "client", label: "Client" }, { key: "progress", label: "Progression (%)" }, { key: "status", label: "Statut" }];
+const columns = [
+  { key: "name", label: "Projet" },
+  { key: "client", label: "Client" },
+  { key: "progress", label: "Progression (%)" },
+  { key: "status", label: "Statut" },
+];
 ---
-<DashboardLayout title="Projets"><PageHeader title="Projets" description="Gérez et suivez vos projets actifs." /><div class="mt-6"><DataTable {columns} rows={projects} caption="Liste des projets" /></div></DashboardLayout>
+
+<DashboardLayout title="Projets">
+  <PageHeader
+    title="Projets"
+    description="Gérez et suivez vos projets actifs."
+  />
+  <div class="mt-6">
+    <DataTable {columns} rows={projects} caption="Liste des projets" />
+  </div>
+</DashboardLayout>

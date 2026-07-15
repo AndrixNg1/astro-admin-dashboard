@@ -3,6 +3,20 @@ import DataTable from "../components/dashboard/DataTable.astro";
 import PageHeader from "../components/ui/PageHeader.astro";
 import { users } from "../data/users";
 import DashboardLayout from "../layouts/DashboardLayout.astro";
-const columns = [{ key: "name", label: "Nom" }, { key: "email", label: "E-mail" }, { key: "role", label: "Rôle" }, { key: "status", label: "Statut" }];
+const columns = [
+  { key: "name", label: "Nom" },
+  { key: "email", label: "E-mail" },
+  { key: "role", label: "Rôle" },
+  { key: "status", label: "Statut" },
+];
 ---
-<DashboardLayout title="Utilisateurs"><PageHeader title="Utilisateurs" description="Gérez les membres et leurs accès." /><div class="mt-6"><DataTable {columns} rows={users} caption="Liste des utilisateurs" /></div></DashboardLayout>
+
+<DashboardLayout title="Utilisateurs">
+  <PageHeader
+    title="Utilisateurs"
+    description="Gérez les membres et leurs accès."
+  />
+  <div class="mt-6">
+    <DataTable {columns} rows={users} caption="Liste des utilisateurs" />
+  </div>
+</DashboardLayout>
