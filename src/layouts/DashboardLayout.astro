@@ -1,0 +1,24 @@
+---
+import AppHeader from "../components/layout/AppHeader.astro";
+import AppSidebar from "../components/layout/AppSidebar.astro";
+import Layout from "./Layout.astro";
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Layout title={`${title} | Astro Admin`} description={description}>
+	<div class="flex min-h-screen">
+		<AppSidebar />
+		<div class="min-w-0 flex-1">
+			<AppHeader />
+			<main class="p-4 sm:p-6 lg:p-8">
+				<slot />
+			</main>
+		</div>
+	</div>
+</Layout>
