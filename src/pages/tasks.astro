@@ -10,6 +10,16 @@ const columns = [
   { key: "priority", label: "Priorité" },
   { key: "status", label: "Statut" },
 ];
+const taskRows: Record<string, string | number>[] = tasks.map(
+  ({ id, title, assignee, dueDate, priority, status }) => ({
+    id,
+    title,
+    assignee,
+    dueDate,
+    priority,
+    status,
+  }),
+);
 ---
 
 <DashboardLayout title="Tâches">
@@ -18,6 +28,6 @@ const columns = [
     description="Organisez le travail de votre équipe."
   />
   <div class="mt-6">
-    <DataTable {columns} rows={tasks} caption="Liste des tâches" />
+    <DataTable {columns} rows={taskRows} caption="Liste des tâches" />
   </div>
 </DashboardLayout>

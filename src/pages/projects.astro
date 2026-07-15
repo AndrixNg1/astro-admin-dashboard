@@ -9,6 +9,15 @@ const columns = [
   { key: "progress", label: "Progression (%)" },
   { key: "status", label: "Statut" },
 ];
+const projectRows: Record<string, string | number>[] = projects.map(
+  ({ id, name, client, progress, status }) => ({
+    id,
+    name,
+    client,
+    progress,
+    status,
+  }),
+);
 ---
 
 <DashboardLayout title="Projets">
@@ -17,6 +26,6 @@ const columns = [
     description="Gérez et suivez vos projets actifs."
   />
   <div class="mt-6">
-    <DataTable {columns} rows={projects} caption="Liste des projets" />
+    <DataTable {columns} rows={projectRows} caption="Liste des projets" />
   </div>
 </DashboardLayout>

@@ -9,6 +9,15 @@ const columns = [
   { key: "role", label: "Rôle" },
   { key: "status", label: "Statut" },
 ];
+const userRows: Record<string, string | number>[] = users.map(
+  ({ id, name, email, role, status }) => ({
+    id,
+    name,
+    email,
+    role,
+    status,
+  }),
+);
 ---
 
 <DashboardLayout title="Utilisateurs">
@@ -17,6 +26,6 @@ const columns = [
     description="Gérez les membres et leurs accès."
   />
   <div class="mt-6">
-    <DataTable {columns} rows={users} caption="Liste des utilisateurs" />
+    <DataTable {columns} rows={userRows} caption="Liste des utilisateurs" />
   </div>
 </DashboardLayout>
