@@ -1,25 +1,32 @@
 ---
 import ChartCard from "../components/dashboard/ChartCard.astro";
+import StatCard from "../components/dashboard/StatCard.astro";
 import PageHeader from "../components/ui/PageHeader.astro";
 import DashboardLayout from "../layouts/DashboardLayout.astro";
+import { analyticsMetrics } from "../data/analytics";
 ---
 
 <DashboardLayout title="Analytiques">
-    <PageHeader
+  <PageHeader
     title="Analytiques"
-    description="Analysez les performances et les tendances."
+    description="Analysez vos performances et découvrez les tendances."
   />
-  <div class="mt-6 grid gap-4 lg:grid-cols-2">
-    <ChartCard title="Revenus"
-      >
-      <div class="grid h-72 place-items-center rounded-lg bg-slate-50 text-sm text-muted">
-        Graphique des revenus
+  
+  <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    {analyticsMetrics.map((metric) => <StatCard {...metric} />)}
+  </div>
+
+  <div class="mt-8 grid gap-6 lg:grid-cols-2">
+    <ChartCard title="Évolution des revenus" description="Performances sur les 12 derniers mois.">
+      <div class="grid h-[300px] place-items-center rounded-xl bg-surface-hover/50 text-sm font-medium text-muted shadow-inner">
+        [Zone de graphique ECharts - Revenus]
       </div>
-      </ChartCard>
-      <ChartCard title="Sources de trafic">
-      <div class="grid h-72 place-items-center rounded-lg bg-slate-50 text-sm text-muted">
-        Graphique du trafic
+    </ChartCard>
+    
+    <ChartCard title="Sources de trafic" description="Répartition des visites par canal d'acquisition.">
+      <div class="grid h-[300px] place-items-center rounded-xl bg-surface-hover/50 text-sm font-medium text-muted shadow-inner">
+        [Zone de graphique ECharts - Sources]
       </div>
     </ChartCard>
   </div>
-  </DashboardLayout>
+</DashboardLayout>

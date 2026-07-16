@@ -9,19 +9,63 @@ import DashboardLayout from "../layouts/DashboardLayout.astro";
 <DashboardLayout title="Paramètres">
   <PageHeader
     title="Paramètres"
-    description="Configurez votre profil et vos préférences."
+    description="Configurez votre profil, vos préférences et la sécurité de votre compte."
   />
-  <Card class="mt-6 max-w-2xl">
-    <form class="space-y-4">
-      <Input id="name" label="Nom" value="Andrix Ng" />
+  
+  <div class="mt-8 grid gap-8 lg:grid-cols-3">
+    <!-- Navigation latérale des paramètres (mockup) -->
+    <div class="hidden lg:block">
+      <nav class="space-y-1">
+        <a href="#" class="flex px-4 py-2 text-sm font-semibold text-primary bg-primary/10 rounded-xl">Profil utilisateur</a>
+        <a href="#" class="flex px-4 py-2 text-sm font-semibold text-muted hover:text-foreground hover:bg-surface-hover rounded-xl transition-colors">Sécurité</a>
+        <a href="#" class="flex px-4 py-2 text-sm font-semibold text-muted hover:text-foreground hover:bg-surface-hover rounded-xl transition-colors">Notifications</a>
+        <a href="#" class="flex px-4 py-2 text-sm font-semibold text-muted hover:text-foreground hover:bg-surface-hover rounded-xl transition-colors">Apparence</a>
+      </nav>
+    </div>
 
-      <Input
-        id="email"
-        label="Adresse e-mail"
-        type="email"
-        value="andrix@example.com"
-      />
-      <Button type="submit">Enregistrer</Button>
-    </form>
-  </Card>
+    <div class="lg:col-span-2 space-y-6">
+      <Card>
+        <div class="mb-6">
+          <h2 class="text-xl font-bold text-foreground">Informations personnelles</h2>
+          <p class="text-sm text-muted mt-1">Mettez à jour vos informations de base et votre adresse email.</p>
+        </div>
+        
+        <form class="space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <Input id="firstName" label="Prénom" value="Andrix" />
+            <Input id="lastName" label="Nom" value="Ng" />
+          </div>
+
+          <Input
+            id="email"
+            label="Adresse e-mail"
+            type="email"
+            value="andrix@example.com"
+          />
+
+          <div class="pt-4 flex justify-end gap-3">
+            <Button variant="ghost">Annuler</Button>
+            <Button type="submit" variant="primary">Enregistrer les modifications</Button>
+          </div>
+        </form>
+      </Card>
+
+      <Card>
+        <div class="mb-6">
+          <h2 class="text-xl font-bold text-foreground">Mot de passe</h2>
+          <p class="text-sm text-muted mt-1">Assurez-vous d'utiliser un mot de passe long et sécurisé.</p>
+        </div>
+        
+        <form class="space-y-5">
+          <Input id="currentPassword" label="Mot de passe actuel" type="password" />
+          <Input id="newPassword" label="Nouveau mot de passe" type="password" />
+          <Input id="confirmPassword" label="Confirmer le mot de passe" type="password" />
+
+          <div class="pt-4 flex justify-end">
+            <Button type="submit" variant="secondary">Mettre à jour le mot de passe</Button>
+          </div>
+        </form>
+      </Card>
+    </div>
+  </div>
 </DashboardLayout>

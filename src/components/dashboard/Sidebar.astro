@@ -6,11 +6,13 @@ import {
   ListChecks,
   Settings,
   Users,
+  Layers,
+  LogOut,
 } from "@lucide/astro";
 import type { NavigationItem } from "../../types";
 
 const navigationItems: NavigationItem[] = [
-  { label: "Vue d’ensemble", href: "/", icon: "dashboard" },
+  { label: "Vue d'ensemble", href: "/", icon: "dashboard" },
   { label: "Analytiques", href: "/analytics", icon: "analytics" },
   { label: "Projets", href: "/projects", icon: "projects" },
   { label: "Tâches", href: "/tasks", icon: "tasks" },
@@ -28,11 +30,18 @@ const icons = {
 const currentPath = Astro.url.pathname;
 ---
 
-<aside class="hidden min-h-screen w-64 shrink-0 border-r bg-surface lg:block">
-  <div class="flex h-16 items-center border-b px-6">
-    <a href="/" class="text-lg font-bold tracking-tight">Astro Admin</a>
+<aside class="hidden min-h-screen w-72 shrink-0 flex-col border-r border-border/50 bg-surface shadow-[4px_0_24px_rgba(0,0,0,0.02)] lg:flex">
+  <div class="flex h-20 items-center px-8">
+    <a href="/" class="flex items-center gap-3 text-xl font-bold tracking-tight text-foreground transition-transform hover:scale-105">
+      <div class="flex size-10 items-center justify-center rounded-xl bg-primary text-white shadow-lg shadow-primary/30">
+        <Layers size={22} stroke-width={2.5} />
+      </div>
+      <span>Astro<span class="text-primary">Admin</span></span>
+    </a>
   </div>
-  <nav aria-label="Navigation principale" class="space-y-1 p-4">
+  
+  <nav aria-label="Navigation principale" class="flex-1 space-y-1.5 px-4 py-6">
+    <div class="mb-4 px-4 text-xs font-semibold uppercase tracking-wider text-muted/70">Menu principal</div>
     {
       navigationItems.map((item) => {
         const Icon = icons[item.icon];
@@ -45,19 +54,32 @@ const currentPath = Astro.url.pathname;
             href={item.href}
             aria-current={isActive ? "page" : undefined}
             class:list={[
-              "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+              "group relative flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold transition-all duration-300 ease-out",
               isActive
-                ? "bg-primary text-white"
-                : "text-muted hover:bg-slate-100 hover:text-foreground",
+                ? "bg-primary/10 text-primary shadow-sm"
+                : "text-muted hover:bg-surface-hover hover:text-foreground",
             ]}
           >
-            <>
-              <Icon size={18} aria-hidden="true" />
-              <span>{item.label}</span>
-            </>
+            {isActive && (
+              <div class="absolute left-0 top-1/2 h-8 w-1 -translate-y-1/2 rounded-r-full bg-primary" />
+            )}
+            <div class:list={[
+              "transition-transform duration-300 group-hover:scale-110",
+              isActive ? "text-primary" : "text-muted group-hover:text-primary"
+            ]}>
+              <Icon size={20} stroke-width={isActive ? 2.5 : 2} aria-hidden="true" />
+            </div>
+            <span class="relative z-10">{item.label}</span>
           </a>
         );
       })
     }
   </nav>
+
+  <div class="border-t border-border/50 p-4">
+    <button class="group flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-semibold text-muted transition-all duration-300 hover:bg-red-50 hover:text-red-600">
+      <LogOut size={20} stroke-width={2} class="transition-transform duration-300 group-hover:-translate-x-1" />
+      <span>Déconnexion</span>
+    </button>
+  </div>
 </aside>

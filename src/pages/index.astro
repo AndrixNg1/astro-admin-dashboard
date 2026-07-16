@@ -1,16 +1,48 @@
 ---
 import PageHeader from '../components/ui/PageHeader.astro';
 import StatCard from '../components/dashboard/StatCard.astro';
+import ChartCard from '../components/dashboard/ChartCard.astro';
+import ActivityFeed from '../components/dashboard/ActivityFeed.astro';
+import DataTable from '../components/dashboard/DataTable.astro';
 import { analyticsMetrics } from '../data/analytics';
+import { projects } from '../data/projects';
 import DashboardLayout from '../layouts/DashboardLayout.astro';
+
+const recentActivities = [
+  { title: "Nouveau projet créé", description: "Le projet 'Refonte du portail' a été initialisé.", time: "Il y a 2 heures" },
+  { title: "Mise à jour système", description: "Mise à jour de sécurité v2.4 installée avec succès.", time: "Il y a 5 heures" },
+  { title: "Nouvel utilisateur", description: "Marie a rejoint l'équipe de développement.", time: "Hier" },
+  { title: "Rapport généré", description: "Le rapport financier Q3 est disponible.", time: "Il y a 2 jours" },
+];
+
+const projectColumns = [
+  { key: "name", label: "Nom du projet" },
+  { key: "client", label: "Client" },
+  { key: "progress", label: "Progression (%)" },
+  { key: "status", label: "Statut" },
+];
 ---
 
-<DashboardLayout title="Vue d’ensemble">
+<DashboardLayout title="Vue d'ensemble">
 	<PageHeader
-		title="Vue d’ensemble"
-		description="Suivez les indicateurs clés de votre activité."
+		title="Vue d'ensemble"
+		description="Suivez les indicateurs clés de votre activité en temps réel."
 	/>
-	<div class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+	<div class="mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
 		{analyticsMetrics.map((metric) => <StatCard {...metric} />)}
+	</div>
+
+	<div class="mt-8 grid gap-6 lg:grid-cols-3">
+		<div class="lg:col-span-2 space-y-6">
+			<ChartCard title="Derniers projets en cours" description="Un aperçu de vos projets récents et de leur statut.">
+				<DataTable columns={projectColumns} rows={projects} />
+			</ChartCard>
+		</div>
+		
+		<div class="space-y-6">
+			<ChartCard title="Activité récente" description="Ce qu'il s'est passé dernièrement.">
+				<ActivityFeed activities={recentActivities} />
+			</ChartCard>
+		</div>
 	</div>
 </DashboardLayout>
