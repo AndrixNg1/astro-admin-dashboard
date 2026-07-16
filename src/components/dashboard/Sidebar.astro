@@ -1,0 +1,63 @@
+---
+import {
+  ChartColumn,
+  FolderKanban,
+  LayoutDashboard,
+  ListChecks,
+  Settings,
+  Users,
+} from "@lucide/astro";
+import type { NavigationItem } from "../../types";
+
+const navigationItems: NavigationItem[] = [
+  { label: "Vue d’ensemble", href: "/", icon: "dashboard" },
+  { label: "Analytiques", href: "/analytics", icon: "analytics" },
+  { label: "Projets", href: "/projects", icon: "projects" },
+  { label: "Tâches", href: "/tasks", icon: "tasks" },
+  { label: "Utilisateurs", href: "/users", icon: "users" },
+  { label: "Paramètres", href: "/settings", icon: "settings" },
+];
+const icons = {
+  analytics: ChartColumn,
+  dashboard: LayoutDashboard,
+  projects: FolderKanban,
+  settings: Settings,
+  tasks: ListChecks,
+  users: Users,
+};
+const currentPath = Astro.url.pathname;
+---
+
+<aside class="hidden min-h-screen w-64 shrink-0 border-r bg-surface lg:block">
+  <div class="flex h-16 items-center border-b px-6">
+    <a href="/" class="text-lg font-bold tracking-tight">Astro Admin</a>
+  </div>
+  <nav aria-label="Navigation principale" class="space-y-1 p-4">
+    {
+      navigationItems.map((item) => {
+        const Icon = icons[item.icon];
+        const isActive =
+          item.href === "/"
+            ? currentPath === "/"
+            : currentPath.startsWith(item.href);
+        return (
+          <a
+            href={item.href}
+            aria-current={isActive ? "page" : undefined}
+            class:list={[
+              "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+              isActive
+                ? "bg-primary text-white"
+                : "text-muted hover:bg-slate-100 hover:text-foreground",
+            ]}
+          >
+            <>
+              <Icon size={18} aria-hidden="true" />
+              <span>{item.label}</span>
+            </>
+          </a>
+        );
+      })
+    }
+  </nav>
+</aside>

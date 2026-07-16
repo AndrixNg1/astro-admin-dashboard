@@ -1,11 +1,16 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import PageHeader from '../components/ui/PageHeader.astro';
+import StatCard from '../components/dashboard/StatCard.astro';
+import { analyticsMetrics } from '../data/analytics';
+import DashboardLayout from '../layouts/DashboardLayout.astro';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<DashboardLayout title="Vue d’ensemble">
+	<PageHeader
+		title="Vue d’ensemble"
+		description="Suivez les indicateurs clés de votre activité."
+	/>
+	<div class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+		{analyticsMetrics.map((metric) => <StatCard {...metric} />)}
+	</div>
+</DashboardLayout>

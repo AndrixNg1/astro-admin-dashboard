@@ -1,0 +1,17 @@
+---
+import Card from "../ui/Card.astro";
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+---
+
+<Card>
+  <div class="mb-5">
+    <h2 class="font-semibold">{title}</h2>{
+      description && <p class="mt-1 text-sm text-muted">{description}</p>
+    }
+  </div>
+  <slot />
+</Card>

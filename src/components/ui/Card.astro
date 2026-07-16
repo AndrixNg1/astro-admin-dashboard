@@ -1,0 +1,10 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<section class:list={["rounded-xl border bg-surface p-5 shadow-sm", className]}>
+  <slot />
+</section>

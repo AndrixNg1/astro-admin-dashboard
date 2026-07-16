@@ -1,0 +1,25 @@
+---
+import ChartCard from "../components/dashboard/ChartCard.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
+import DashboardLayout from "../layouts/DashboardLayout.astro";
+---
+
+<DashboardLayout title="Analytiques">
+    <PageHeader
+    title="Analytiques"
+    description="Analysez les performances et les tendances."
+  />
+  <div class="mt-6 grid gap-4 lg:grid-cols-2">
+    <ChartCard title="Revenus"
+      >
+      <div class="grid h-72 place-items-center rounded-lg bg-slate-50 text-sm text-muted">
+        Graphique des revenus
+      </div>
+      </ChartCard>
+      <ChartCard title="Sources de trafic">
+      <div class="grid h-72 place-items-center rounded-lg bg-slate-50 text-sm text-muted">
+        Graphique du trafic
+      </div>
+    </ChartCard>
+  </div>
+  </DashboardLayout>

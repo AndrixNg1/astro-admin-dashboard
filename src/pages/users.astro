@@ -1,0 +1,31 @@
+---
+import DataTable from "../components/dashboard/DataTable.astro";
+import PageHeader from "../components/ui/PageHeader.astro";
+import { users } from "../data/users";
+import DashboardLayout from "../layouts/DashboardLayout.astro";
+const columns = [
+  { key: "name", label: "Nom" },
+  { key: "email", label: "E-mail" },
+  { key: "role", label: "Rôle" },
+  { key: "status", label: "Statut" },
+];
+const userRows: Record<string, string | number>[] = users.map(
+  ({ id, name, email, role, status }) => ({
+    id,
+    name,
+    email,
+    role,
+    status,
+  }),
+);
+---
+
+<DashboardLayout title="Utilisateurs">
+  <PageHeader
+    title="Utilisateurs"
+    description="Gérez les membres et leurs accès."
+  />
+  <div class="mt-6">
+    <DataTable {columns} rows={userRows} caption="Liste des utilisateurs" />
+  </div>
+</DashboardLayout>

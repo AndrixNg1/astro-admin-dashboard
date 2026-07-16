@@ -1,1 +1,33 @@
 @import "tailwindcss";
+
+@theme {
+	--color-surface: #ffffff;
+	--color-background: #f8fafc;
+	--color-border: #e2e8f0;
+	--color-muted: #64748b;
+	--color-foreground: #0f172a;
+	--color-primary: #4f46e5;
+}
+
+@layer base {
+	* {
+		border-color: var(--color-border);
+	}
+
+	html {
+		font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+		background: var(--color-background);
+		color: var(--color-foreground);
+	}
+
+	body {
+		min-width: 320px;
+		min-height: 100vh;
+		margin: 0;
+	}
+
+	button,
+	a {
+		-webkit-tap-highlight-color: transparent;
+	}
+}
