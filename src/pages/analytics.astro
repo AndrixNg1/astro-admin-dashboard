@@ -4,6 +4,10 @@ import StatCard from "../components/dashboard/StatCard.astro";
 import PageHeader from "../components/ui/PageHeader.astro";
 import DashboardLayout from "../layouts/DashboardLayout.astro";
 import { analyticsMetrics } from "../data/analytics";
+import EChart from "../components/charts/EChart";
+import { revenueChartOptions } from "../charts/RevenueChart";
+import { trafficChartOptions } from "../charts/TrafficChart";
+import { conversionChartOptions } from "../charts/ConversionChart";
 ---
 
 <DashboardLayout title="Analytiques">
@@ -18,15 +22,17 @@ import { analyticsMetrics } from "../data/analytics";
 
   <div class="mt-8 grid gap-6 lg:grid-cols-2">
     <ChartCard title="Évolution des revenus" description="Performances sur les 12 derniers mois.">
-      <div class="grid h-[300px] place-items-center rounded-xl bg-surface-hover/50 text-sm font-medium text-muted shadow-inner">
-        [Zone de graphique ECharts - Revenus]
-      </div>
+      <EChart client:visible label="Évolution mensuelle des revenus" options={revenueChartOptions} />
     </ChartCard>
     
     <ChartCard title="Sources de trafic" description="Répartition des visites par canal d'acquisition.">
-      <div class="grid h-[300px] place-items-center rounded-xl bg-surface-hover/50 text-sm font-medium text-muted shadow-inner">
-        [Zone de graphique ECharts - Sources]
-      </div>
+      <EChart client:visible label="Répartition des sources de trafic" options={trafficChartOptions} />
+    </ChartCard>
+  </div>
+
+  <div class="mt-6">
+    <ChartCard title="Taux de conversion" description="Progression des conversions au cours des huit dernières semaines.">
+      <EChart client:visible label="Taux de conversion hebdomadaire" options={conversionChartOptions} height={300} />
     </ChartCard>
   </div>
 </DashboardLayout>

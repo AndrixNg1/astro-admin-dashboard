@@ -7,6 +7,9 @@ import DataTable from '../components/dashboard/DataTable.astro';
 import { analyticsMetrics } from '../data/analytics';
 import { projects } from '../data/projects';
 import DashboardLayout from '../layouts/DashboardLayout.astro';
+import EChart from '../components/charts/EChart';
+import { revenueChartOptions } from '../charts/RevenueChart';
+import { conversionChartOptions } from '../charts/ConversionChart';
 
 const recentActivities = [
   { id: 1, title: "Nouveau projet créé", description: "Le projet 'Refonte du portail' a été initialisé.", time: "Il y a 2 heures" },
@@ -30,6 +33,17 @@ const projectColumns = [
 	/>
 	<div class="mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
 		{analyticsMetrics.map((metric) => <StatCard {...metric} />)}
+	</div>
+
+	<div class="mt-8 grid gap-6 lg:grid-cols-3">
+		<div class="lg:col-span-2">
+			<ChartCard title="Revenus mensuels" description="Tendance des revenus sur les douze derniers mois.">
+				<EChart client:visible label="Aperçu des revenus mensuels" options={revenueChartOptions} height={300} />
+			</ChartCard>
+		</div>
+		<ChartCard title="Conversions" description="Évolution sur huit semaines.">
+			<EChart client:visible label="Aperçu du taux de conversion" options={conversionChartOptions} height={300} />
+		</ChartCard>
 	</div>
 
 	<div class="mt-8 grid gap-6 lg:grid-cols-3">
