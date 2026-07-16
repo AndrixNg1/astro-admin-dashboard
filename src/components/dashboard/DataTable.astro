@@ -1,16 +1,13 @@
 ---
-interface Column {
-  key: string;
-  label: string;
-}
+import type { TableColumn, TableRow } from "../../types";
 interface Props {
-  columns: Column[];
-  rows: object[];
+  columns: TableColumn[];
+  rows: TableRow[];
   caption?: string;
 }
 const { columns, rows, caption = "Données" }: Props = Astro.props;
 
-const getCellValue = (row: object, key: string): string | number => {
+const getCellValue = (row: TableRow, key: string): string | number => {
   const value = (row as Record<string, unknown>)[key];
 
   return typeof value === "string" || typeof value === "number"

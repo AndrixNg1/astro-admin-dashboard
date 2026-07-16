@@ -1,6 +1,5 @@
 ---
-import DataTable from "../components/dashboard/DataTable.astro";
-import PageHeader from "../components/ui/PageHeader.astro";
+import ResourceTable from "../components/dashboard/ResourceTable.astro";
 import { projects } from "../data/projects";
 import DashboardLayout from "../layouts/DashboardLayout.astro";
 const columns = [
@@ -9,23 +8,14 @@ const columns = [
   { key: "progress", label: "Progression (%)" },
   { key: "status", label: "Statut" },
 ];
-const projectRows: Record<string, string | number>[] = projects.map(
-  ({ id, name, client, progress, status }) => ({
-    id,
-    name,
-    client,
-    progress,
-    status,
-  }),
-);
 ---
 
 <DashboardLayout title="Projets">
-  <PageHeader
+  <ResourceTable
     title="Projets"
     description="Gérez et suivez vos projets actifs."
+    {columns}
+    rows={projects}
+    caption="Liste des projets"
   />
-  <div class="mt-6">
-    <DataTable {columns} rows={projectRows} caption="Liste des projets" />
-  </div>
 </DashboardLayout>
