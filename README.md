@@ -1,122 +1,131 @@
-# Tableau de bord e-commerce avec Astro
+# AstoShop Dashboard
 
-Un back-office e-commerce moderne, responsive et réutilisable, construit avec Astro et TypeScript. Il offre aux équipes commerciales une vue claire de l'activité de leur boutique : chiffre d'affaires, conversions, sources de trafic, clients, commandes et catalogue.
+A fast, responsive, and reusable e-commerce admin dashboard built with Astro and TypeScript. AstoShop provides a clear overview of store revenue, orders, customers, products, inventory, acquisition channels, and conversion performance.
 
 > [!NOTE]
-> Le projet est en cours de développement. Le socle e-commerce, les composants d'interface et les principales vues métier sont disponibles. Les actions d'administration et la connexion à un backend seront intégrées progressivement.
+> This project is under active development. The e-commerce foundation, core UI components, analytics, and primary business views are available. Data mutations and backend integrations are planned for future releases.
 
-## Objectif du projet
+## Live demo
 
-Ce tableau de bord a vocation à centraliser le pilotage quotidien d'une boutique en ligne. À terme, un administrateur pourra notamment :
+[View the live dashboard](https://dashboard-astro1.vercel.app/)
 
-- suivre le chiffre d'affaires et son évolution ;
-- analyser le trafic et le taux de conversion ;
-- consulter et traiter les commandes ;
-- gérer les produits, les catégories et les stocks ;
-- retrouver les clients et leur historique d'achat ;
-- surveiller les alertes importantes de la boutique.
+## Overview
 
-Les données sont actuellement simulées avec des fichiers TypeScript locaux. Cette organisation permet de développer l'interface indépendamment avant de la connecter à une API, un CMS ou une plateforme e-commerce.
+AstoShop is designed as a practical foundation for online store back offices. It helps store managers:
 
-## Fonctionnalités actuelles
+- monitor revenue, orders, average order value, and conversion rate;
+- analyze acquisition channels and sales trends;
+- review orders, payments, and fulfillment statuses;
+- track products, categories, pricing, and inventory;
+- understand customer activity and lifetime spending;
+- monitor store notifications and low-stock alerts.
 
-- vue d'ensemble avec indicateurs clés ;
-- graphiques interactifs des revenus, du trafic et des conversions ;
-- navigation latérale responsive ;
-- thème clair et sombre ;
-- tableaux de données réutilisables ;
-- vues pour les produits, les commandes, les clients, les notifications et les paramètres ;
-- composants d'interface typés et réutilisables ;
-- rendu rapide grâce à Astro et aux îlots React ciblés.
+The dashboard currently uses typed local mock data. This keeps the interface independent from any backend and makes it easy to connect an API, CMS, or commerce platform later.
 
-## Feuille de route e-commerce
+## Features
 
-- ajouter la création et la modification des produits, variantes et catégories ;
-- rendre interactif le traitement des commandes, paiements et expéditions ;
-- enrichir les fiches clients avec leur historique d'achat détaillé ;
-- ajouter les produits les plus vendus, le panier moyen et les abandons de panier ;
-- proposer des filtres par période, canal de vente et statut ;
-- connecter le tableau de bord à une véritable source de données ;
-- gérer les états de chargement, d'erreur et d'absence de données.
+- E-commerce overview with key performance indicators
+- Revenue and conversion charts built with lightweight SVG and CSS
+- Interactive acquisition chart powered by Apache ECharts and loaded on demand
+- Responsive sidebar and mobile navigation
+- Product catalog with pricing and inventory status
+- Order tracking with payment and fulfillment information
+- Customer overview with order count and total spending
+- Store notifications and account settings
+- Reusable, typed, and accessible Astro components
+- Fast static output with minimal client-side JavaScript
 
 ## Pages
 
-| Route | État | Description |
-| --- | --- | --- |
-| `/` | Disponible | Vue d'ensemble des performances de la boutique |
-| `/analytics` | Disponible | Ventes, acquisition et taux de conversion |
-| `/notifications` | Disponible | Alertes et événements importants |
-| `/products` | Disponible | Catalogue, prix et niveaux de stock |
-| `/orders` | Disponible | Commandes, paiements et statuts de livraison |
-| `/customers` | Disponible | Clients, commandes et montants dépensés |
-| `/settings` | Disponible | Préférences générales du tableau de bord |
+| Route | Description |
+| --- | --- |
+| `/` | Store performance overview and recent activity |
+| `/analytics` | Revenue, acquisition channels, and conversion trends |
+| `/products` | Product catalog, prices, categories, and inventory |
+| `/orders` | Orders, payments, and fulfillment statuses |
+| `/customers` | Customer activity, orders, and total spending |
+| `/notifications` | Store alerts and recent events |
+| `/settings` | Dashboard account and security settings |
 
-## Technologies
+Legacy routes for projects, tasks, and users redirect to their corresponding e-commerce pages.
 
-- [Astro](https://astro.build/) — structure, routage et rendu de l'application ;
-- [TypeScript](https://www.typescriptlang.org/) — typage des données et du code applicatif ;
-- [Tailwind CSS](https://tailwindcss.com/) — styles et mise en page responsive ;
-- SVG et CSS natifs — graphiques légers pour les ventes et les conversions ;
-- [Apache ECharts](https://echarts.apache.org/) — graphique interactif des canaux d'acquisition, chargé à la demande ;
-- [Lucide](https://lucide.dev/) — icônes SVG cohérentes.
+## Tech stack
 
-## Prérequis
+- [Astro](https://astro.build/) for routing, rendering, and application structure
+- [TypeScript](https://www.typescriptlang.org/) for typed data and application logic
+- [Tailwind CSS](https://tailwindcss.com/) for responsive styling
+- Native SVG and CSS for lightweight revenue and conversion charts
+- [Apache ECharts](https://echarts.apache.org/) for the lazy-loaded acquisition chart
+- [Lucide](https://lucide.dev/) for consistent SVG icons
 
-- Node.js 22.12 ou une version plus récente ;
-- npm.
+## Requirements
 
-## Installation
+- Node.js 22.12 or later
+- npm
+
+## Getting started
 
 ```bash
-git clone https://github.com/AndrixNg1/astro-admin-dashboard.git
-cd astro-admin-dashboard
+git clone https://github.com/AndrixNg1/AstoShop-dashboard.git
+cd AstoShop-dashboard
 npm install
 npm run dev
 ```
 
-Ouvrez ensuite [http://localhost:4321](http://localhost:4321) dans votre navigateur.
+Open [http://localhost:4321](http://localhost:4321) in your browser.
 
-## Commandes disponibles
+## Available commands
 
-Les commandes doivent être exécutées depuis la racine du projet.
+Run all commands from the project root.
 
-| Commande | Description |
+| Command | Description |
 | --- | --- |
-| `npm install` | Installe les dépendances |
-| `npm run dev` | Démarre le serveur de développement |
-| `npm run build` | Génère la version de production dans `dist/` |
-| `npm run preview` | Prévisualise la version de production |
-| `npm run astro -- --help` | Affiche l'aide de la CLI Astro |
+| `npm install` | Install project dependencies |
+| `npm run dev` | Start the local development server |
+| `npm run build` | Create a production build in `dist/` |
+| `npm run preview` | Preview the production build locally |
+| `npm run astro -- --help` | Display Astro CLI help |
 
-## Structure du projet
+## Project structure
 
 ```text
 src/
-├── assets/              # Styles globaux, images et scripts côté client
+├── assets/              # Global styles and client-side scripts
+├── charts/              # ECharts configuration
 ├── components/
-│   ├── charts/          # Composants de visualisation
-│   ├── dashboard/       # Éléments propres au tableau de bord
-│   └── ui/              # Composants d'interface génériques
-├── data/                # Données simulées locales
-├── layouts/             # Mises en page partagées
-├── pages/               # Routes générées par Astro
-└── types/               # Types TypeScript partagés
+│   ├── charts/          # Data visualization components
+│   ├── dashboard/       # Dashboard-specific components
+│   └── ui/              # Reusable interface components
+├── data/                # Typed local mock data
+├── layouts/             # Shared page layouts
+├── pages/               # File-based Astro routes
+└── types/               # Shared TypeScript types
 ```
 
-## Personnalisation et connexion à un backend
+## Customization and backend integration
 
-- Modifiez les styles globaux dans `src/assets/styles/app.css`.
-- Ajoutez ou adaptez les routes dans `src/pages/`.
-- Configurez les graphiques dans `src/components/charts/` et `src/charts/`.
-- Remplacez progressivement les données de `src/data/` par des appels à votre API.
-- Configurez les intégrations Astro dans `astro.config.mjs`.
+- Update global styles in `src/assets/styles/app.css`.
+- Add or modify routes in `src/pages/`.
+- Configure charts in `src/components/charts/` and `src/charts/`.
+- Replace the mock data in `src/data/` with calls to your API.
+- Configure Astro and Vite integrations in `astro.config.mjs`.
 
-Le tableau de bord peut être relié à une API personnalisée ou adapté à une solution comme Shopify, WooCommerce, Medusa ou Saleor. Aucun connecteur e-commerce n'est inclus pour le moment.
+The dashboard can be connected to a custom API or adapted for platforms such as Shopify, WooCommerce, Medusa, or Saleor. No commerce connector is included yet.
 
-## Contribution
+## Roadmap
 
-Les contributions, rapports de bugs et propositions d'amélioration sont les bienvenus. Consultez [CONTRIBUTING.md](CONTRIBUTING.md) et le [Code de conduite](CODE_OF_CONDUCT.md) avant d'ouvrir une pull request.
+- Product, variant, and category creation workflows
+- Interactive order, payment, and fulfillment management
+- Detailed customer profiles and purchase history
+- Best-selling products and abandoned-cart analytics
+- Filters by date range, sales channel, and status
+- Loading, empty, and error states for remote data
+- Authentication, authorization, and backend integration
 
-## Licence
+## Contributing
 
-Ce projet est distribué sous [licence MIT](LICENSE).
+Contributions, bug reports, and feature proposals are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md) before opening a pull request.
+
+## License
+
+This project is available under the [MIT License](LICENSE).

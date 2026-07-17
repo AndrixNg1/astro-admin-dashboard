@@ -1,6 +1,6 @@
-# Contributing to Astro Admin Dashboard
+# Contributing to AstoShop Dashboard
 
-Thank you for helping improve Astro Admin Dashboard. Contributions of all sizes are welcome, including bug fixes, documentation, accessibility improvements, new components, and feature proposals.
+Thank you for helping improve AstoShop Dashboard. Contributions of all sizes are welcome, including bug fixes, documentation, accessibility improvements, new components, and feature proposals.
 
 By participating, you agree to follow the project's [Code of Conduct](CODE_OF_CONDUCT.md).
 
@@ -15,8 +15,8 @@ By participating, you agree to follow the project's [Code of Conduct](CODE_OF_CO
 Fork the repository, then clone your fork:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/astro-admin-dashboard.git
-cd astro-admin-dashboard
+git clone https://github.com/YOUR_USERNAME/AstoShop-dashboard.git
+cd AstoShop-dashboard
 npm install
 npm run dev
 ```
@@ -24,7 +24,7 @@ npm run dev
 Create a branch with a descriptive name:
 
 ```bash
-git checkout -b feat/project-filters
+git checkout -b feat/order-filters
 ```
 
 Useful branch prefixes include `feat/`, `fix/`, `docs/`, and `refactor/`.
@@ -54,7 +54,7 @@ Also test the affected pages at mobile and desktop sizes. Check both light and d
 Write concise, imperative commit messages. Conventional prefixes are encouraged:
 
 ```text
-feat: add project status filters
+feat: add order status filters
 fix: keep sidebar state after navigation
 docs: document theme customization
 ```

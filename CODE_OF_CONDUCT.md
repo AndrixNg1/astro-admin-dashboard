@@ -2,7 +2,7 @@
 
 ## Our commitment
 
-We are committed to making participation in Astro Admin Dashboard a welcoming, respectful, and harassment-free experience for everyone, regardless of background, identity, appearance, experience level, or ability.
+We are committed to making participation in AstoShop Dashboard a welcoming, respectful, and harassment-free experience for everyone, regardless of background, identity, appearance, experience level, or ability.
 
 ## Expected behavior
 
