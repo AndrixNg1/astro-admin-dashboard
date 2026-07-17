@@ -57,3 +57,19 @@ export interface Activity {
 	description: string;
 	time: string;
 }
+
+export interface Notification {
+	id: number;
+	title: string;
+	description: string;
+	time: string;
+	unread: boolean;
+	type: "alert" | "system" | "user";
+}
+
+export interface TableColumn {
+	key: string;
+	label: string;
+}
+
+export type TableRow = object;

@@ -8,10 +8,9 @@ const { title, description } = Astro.props;
 ---
 
 <Card>
-  <div class="mb-5">
-    <h2 class="font-semibold">{title}</h2>{
-      description && <p class="mt-1 text-sm text-muted">{description}</p>
-    }
+  <div class="mb-6">
+    <h2 class="text-lg font-bold tracking-tight text-foreground">{title}</h2>
+    {description && <p class="mt-1.5 text-sm text-muted">{description}</p>}
   </div>
   <slot />
 </Card>
