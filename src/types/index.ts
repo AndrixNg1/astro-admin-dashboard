@@ -1,10 +1,10 @@
 export type NavigationIcon =
 	| "analytics"
 	| "dashboard"
-	| "projects"
+	| "products"
 	| "settings"
-	| "tasks"
-	| "users";
+	| "orders"
+	| "customers";
 
 export interface NavigationItem {
 	label: string;
@@ -18,37 +18,34 @@ export interface AnalyticsMetric {
 	change: number;
 }
 
-export type ProjectStatus = "En cours" | "En attente" | "Terminé";
-
-export interface Project {
+export type ProductStatus = "En stock" | "Stock faible" | "Rupture";
+export interface Product {
 	id: number;
 	name: string;
-	client: string;
-	progress: number;
-	status: ProjectStatus;
+	category: string;
+	price: string;
+	stock: number;
+	status: ProductStatus;
 }
 
-export type TaskPriority = "Basse" | "Moyenne" | "Haute";
-export type TaskStatus = "À faire" | "En cours" | "Terminée";
-
-export interface Task {
-	id: number;
-	title: string;
-	assignee: string;
-	dueDate: string;
-	priority: TaskPriority;
-	status: TaskStatus;
+export type OrderStatus = "En attente" | "Payée" | "Expédiée" | "Livrée" | "Annulée";
+export interface Order {
+	id: string;
+	customer: string;
+	date: string;
+	total: string;
+	payment: string;
+	status: OrderStatus;
 }
 
-export type UserStatus = "Actif" | "Inactif";
-
-export interface User {
+export type CustomerStatus = "Actif" | "Nouveau" | "Inactif";
+export interface Customer {
 	id: number;
 	name: string;
 	email: string;
-	role: string;
-	status: UserStatus;
-	avatar?: string;
+	orders: number;
+	spent: string;
+	status: CustomerStatus;
 }
 
 export interface Activity {

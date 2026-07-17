@@ -1,55 +1,71 @@
-# Astro Admin Dashboard
+# Tableau de bord e-commerce avec Astro
 
-A modern, responsive, and reusable admin dashboard built with Astro and TypeScript. The project is designed as an open-source foundation for developer tools, startup back offices, and small-business applications.
+Un back-office e-commerce moderne, responsive et réutilisable, construit avec Astro et TypeScript. Il offre aux équipes commerciales une vue claire de l'activité de leur boutique : chiffre d'affaires, conversions, sources de trafic, clients, commandes et catalogue.
 
 > [!NOTE]
-> The dashboard is currently under active development. The initial Astro setup and core dependencies are ready; dashboard pages and reusable components are being implemented progressively.
+> Le projet est en cours de développement. Le socle e-commerce, les composants d'interface et les principales vues métier sont disponibles. Les actions d'administration et la connexion à un backend seront intégrées progressivement.
 
-## Preview
+## Objectif du projet
 
-A public demo and screenshots will be added with the first stable release.
+Ce tableau de bord a vocation à centraliser le pilotage quotidien d'une boutique en ligne. À terme, un administrateur pourra notamment :
 
-## Planned features
+- suivre le chiffre d'affaires et son évolution ;
+- analyser le trafic et le taux de conversion ;
+- consulter et traiter les commandes ;
+- gérer les produits, les catégories et les stocks ;
+- retrouver les clients et leur historique d'achat ;
+- surveiller les alertes importantes de la boutique.
 
-- Responsive sidebar and mobile navigation
-- Light and dark themes
-- Overview with key metrics, recent activity, projects, and tasks
-- Interactive analytics powered by Apache ECharts
-- Searchable and filterable project management
-- Task table and Kanban views with local persistence
-- Sortable, paginated user table
-- Profile, appearance, notification, and security settings
-- Reusable UI components and accessible keyboard interactions
-- Loading, empty, error, and skeleton states
+Les données sont actuellement simulées avec des fichiers TypeScript locaux. Cette organisation permet de développer l'interface indépendamment avant de la connecter à une API, un CMS ou une plateforme e-commerce.
 
-## Planned pages
+## Fonctionnalités actuelles
 
-| Route | Purpose |
-| --- | --- |
-| `/` | Dashboard overview and key metrics |
-| `/analytics` | Traffic, revenue, device, region, and conversion analytics |
-| `/projects` | Project tracking, filters, budgets, and progress |
-| `/tasks` | Table and Kanban task management |
-| `/users` | User directory with search, sorting, and pagination |
-| `/settings` | Profile, theme, notifications, and preferences |
+- vue d'ensemble avec indicateurs clés ;
+- graphiques interactifs des revenus, du trafic et des conversions ;
+- navigation latérale responsive ;
+- thème clair et sombre ;
+- tableaux de données réutilisables ;
+- vues pour les produits, les commandes, les clients, les notifications et les paramètres ;
+- composants d'interface typés et réutilisables ;
+- rendu rapide grâce à Astro et aux îlots React ciblés.
 
-## Tech stack
+## Feuille de route e-commerce
 
-- [Astro](https://astro.build/) — application structure and rendering
-- [TypeScript](https://www.typescriptlang.org/) — typed application code
-- [Tailwind CSS](https://tailwindcss.com/) — styling
-- [React](https://react.dev/) — interactive islands when needed
-- [Apache ECharts](https://echarts.apache.org/) — data visualization
-- [Lucide](https://lucide.dev/) — consistent SVG icons
+- ajouter la création et la modification des produits, variantes et catégories ;
+- rendre interactif le traitement des commandes, paiements et expéditions ;
+- enrichir les fiches clients avec leur historique d'achat détaillé ;
+- ajouter les produits les plus vendus, le panier moyen et les abandons de panier ;
+- proposer des filtres par période, canal de vente et statut ;
+- connecter le tableau de bord à une véritable source de données ;
+- gérer les états de chargement, d'erreur et d'absence de données.
 
-## Getting started
+## Pages
 
-### Requirements
+| Route | État | Description |
+| --- | --- | --- |
+| `/` | Disponible | Vue d'ensemble des performances de la boutique |
+| `/analytics` | Disponible | Ventes, acquisition et taux de conversion |
+| `/notifications` | Disponible | Alertes et événements importants |
+| `/products` | Disponible | Catalogue, prix et niveaux de stock |
+| `/orders` | Disponible | Commandes, paiements et statuts de livraison |
+| `/customers` | Disponible | Clients, commandes et montants dépensés |
+| `/settings` | Disponible | Préférences générales du tableau de bord |
 
-- Node.js 22.12 or newer
-- npm
+## Technologies
 
-### Installation
+- [Astro](https://astro.build/) — structure, routage et rendu de l'application ;
+- [TypeScript](https://www.typescriptlang.org/) — typage des données et du code applicatif ;
+- [Tailwind CSS](https://tailwindcss.com/) — styles et mise en page responsive ;
+- SVG et CSS natifs — graphiques légers pour les ventes et les conversions ;
+- [Apache ECharts](https://echarts.apache.org/) — graphique interactif des canaux d'acquisition, chargé à la demande ;
+- [Lucide](https://lucide.dev/) — icônes SVG cohérentes.
+
+## Prérequis
+
+- Node.js 22.12 ou une version plus récente ;
+- npm.
+
+## Installation
 
 ```bash
 git clone https://github.com/AndrixNg1/astro-admin-dashboard.git
@@ -58,64 +74,49 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:4321](http://localhost:4321) in your browser.
+Ouvrez ensuite [http://localhost:4321](http://localhost:4321) dans votre navigateur.
 
-## Available commands
+## Commandes disponibles
 
-Run commands from the project root:
+Les commandes doivent être exécutées depuis la racine du projet.
 
-| Command | Description |
+| Commande | Description |
 | --- | --- |
-| `npm install` | Install project dependencies |
-| `npm run dev` | Start the local development server |
-| `npm run build` | Create a production build in `dist/` |
-| `npm run preview` | Preview the production build locally |
-| `npm run astro -- --help` | Display Astro CLI help |
+| `npm install` | Installe les dépendances |
+| `npm run dev` | Démarre le serveur de développement |
+| `npm run build` | Génère la version de production dans `dist/` |
+| `npm run preview` | Prévisualise la version de production |
+| `npm run astro -- --help` | Affiche l'aide de la CLI Astro |
 
-## Project structure
-
-The repository currently follows this structure and will grow as the roadmap is implemented:
-
-```text
-.
-├── public/                 # Static assets
-├── src/
-│   ├── assets/             # Images and global styles
-│   ├── components/         # Astro and framework components
-│   ├── layouts/            # Shared page layouts
-│   └── pages/              # File-based routes
-├── astro.config.mjs        # Astro, React, and Tailwind configuration
-├── package.json            # Scripts and dependencies
-└── tsconfig.json           # TypeScript configuration
-```
-
-The target architecture separates reusable UI, dashboard components, charts, typed mock data, and shared types:
+## Structure du projet
 
 ```text
 src/
+├── assets/              # Styles globaux, images et scripts côté client
 ├── components/
-│   ├── ui/
-│   ├── dashboard/
-│   └── charts/
-├── data/
-├── layouts/
-├── pages/
-└── types/
+│   ├── charts/          # Composants de visualisation
+│   ├── dashboard/       # Éléments propres au tableau de bord
+│   └── ui/              # Composants d'interface génériques
+├── data/                # Données simulées locales
+├── layouts/             # Mises en page partagées
+├── pages/               # Routes générées par Astro
+└── types/               # Types TypeScript partagés
 ```
 
-## Customization
+## Personnalisation et connexion à un backend
 
-- Update global styles in `src/assets/styles/app.css`.
-- Add or modify routes in `src/pages/`.
-- Configure integrations in `astro.config.mjs`.
-- Replace the local TypeScript mock data with API calls when connecting a backend.
+- Modifiez les styles globaux dans `src/assets/styles/app.css`.
+- Ajoutez ou adaptez les routes dans `src/pages/`.
+- Configurez les graphiques dans `src/components/charts/` et `src/charts/`.
+- Remplacez progressivement les données de `src/data/` par des appels à votre API.
+- Configurez les intégrations Astro dans `astro.config.mjs`.
 
-Keep interactive JavaScript focused on components that need it so the dashboard remains fast and lightweight.
+Le tableau de bord peut être relié à une API personnalisée ou adapté à une solution comme Shopify, WooCommerce, Medusa ou Saleor. Aucun connecteur e-commerce n'est inclus pour le moment.
 
-## Contributing
+## Contribution
 
-Contributions, bug reports, and feature ideas are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+Les contributions, rapports de bugs et propositions d'amélioration sont les bienvenus. Consultez [CONTRIBUTING.md](CONTRIBUTING.md) et le [Code de conduite](CODE_OF_CONDUCT.md) avant d'ouvrir une pull request.
 
-## License
+## Licence
 
-This project is available under the [MIT License](LICENSE).
+Ce projet est distribué sous [licence MIT](LICENSE).
