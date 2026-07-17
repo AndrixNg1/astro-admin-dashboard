@@ -10,7 +10,7 @@ import { User, Shield } from "@lucide/astro";
 <DashboardLayout title="Paramètres">
   <PageHeader
     title="Paramètres"
-    description="Configurez votre profil, vos préférences et la sécurité de votre compte."
+    description="Configurez votre profil de gestionnaire et la sécurité de la boutique."
   />
   
   <div class="mt-8 grid gap-8 lg:grid-cols-4 relative">
@@ -19,7 +19,7 @@ import { User, Shield } from "@lucide/astro";
         <nav id="settings-nav" class="space-y-1.5">
           <a href="#profile" data-target="profile" class="nav-link group flex items-center gap-3 px-4 py-2.5 text-sm font-semibold rounded-xl transition-all bg-primary/10 text-primary">
             <User size={18} stroke-width={2.5} class="icon" />
-            Profil utilisateur
+            Profil gestionnaire
           </a>
           <a href="#security" data-target="security" class="nav-link group flex items-center gap-3 px-4 py-2.5 text-sm font-semibold rounded-xl transition-all text-muted hover:text-foreground hover:bg-surface-hover">
             <Shield size={18} stroke-width={2} class="icon transition-colors group-hover:text-foreground" />
@@ -33,8 +33,8 @@ import { User, Shield } from "@lucide/astro";
       <section id="profile" data-settings-section class="scroll-mt-28">
         <Card>
           <div class="mb-6">
-            <h2 class="text-xl font-bold text-foreground">Informations personnelles</h2>
-            <p class="text-sm text-muted mt-1">Mettez à jour vos informations de base et votre adresse email.</p>
+            <h2 class="text-xl font-bold text-foreground">Informations du gestionnaire</h2>
+            <p class="text-sm text-muted mt-1">Mettez à jour les coordonnées du compte administrateur de la boutique.</p>
           </div>
 
           <form class="space-y-5">

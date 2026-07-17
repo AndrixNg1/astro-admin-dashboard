@@ -1,59 +1,73 @@
-# Astro Admin Dashboard
+# AstoShop Dashboard
 
-A modern, responsive, and reusable admin dashboard built with Astro and TypeScript. The project is designed as an open-source foundation for developer tools, startup back offices, and small-business applications.
+A fast, responsive, and reusable e-commerce admin dashboard built with Astro and TypeScript. AstoShop provides a clear overview of store revenue, orders, customers, products, inventory, acquisition channels, and conversion performance.
 
 > [!NOTE]
-> The dashboard is currently under active development. The initial Astro setup and core dependencies are ready; dashboard pages and reusable components are being implemented progressively.
+> This project is under active development. The e-commerce foundation, core UI components, analytics, and primary business views are available. Data mutations and backend integrations are planned for future releases.
 
-## Preview
+## Live demo
 
-A public demo and screenshots will be added with the first stable release.
+[View the live dashboard](https://dashboard-astro1.vercel.app/)
 
-## Planned features
+## Overview
 
+AstoShop is designed as a practical foundation for online store back offices. It helps store managers:
+
+- monitor revenue, orders, average order value, and conversion rate;
+- analyze acquisition channels and sales trends;
+- review orders, payments, and fulfillment statuses;
+- track products, categories, pricing, and inventory;
+- understand customer activity and lifetime spending;
+- monitor store notifications and low-stock alerts.
+
+The dashboard currently uses typed local mock data. This keeps the interface independent from any backend and makes it easy to connect an API, CMS, or commerce platform later.
+
+## Features
+
+- E-commerce overview with key performance indicators
+- Revenue and conversion charts built with lightweight SVG and CSS
+- Interactive acquisition chart powered by Apache ECharts and loaded on demand
 - Responsive sidebar and mobile navigation
-- Light and dark themes
-- Overview with key metrics, recent activity, projects, and tasks
-- Interactive analytics powered by Apache ECharts
-- Searchable and filterable project management
-- Task table and Kanban views with local persistence
-- Sortable, paginated user table
-- Profile, appearance, notification, and security settings
-- Reusable UI components and accessible keyboard interactions
-- Loading, empty, error, and skeleton states
+- Product catalog with pricing and inventory status
+- Order tracking with payment and fulfillment information
+- Customer overview with order count and total spending
+- Store notifications and account settings
+- Reusable, typed, and accessible Astro components
+- Fast static output with minimal client-side JavaScript
 
-## Planned pages
+## Pages
 
-| Route | Purpose |
+| Route | Description |
 | --- | --- |
-| `/` | Dashboard overview and key metrics |
-| `/analytics` | Traffic, revenue, device, region, and conversion analytics |
-| `/projects` | Project tracking, filters, budgets, and progress |
-| `/tasks` | Table and Kanban task management |
-| `/users` | User directory with search, sorting, and pagination |
-| `/settings` | Profile, theme, notifications, and preferences |
+| `/` | Store performance overview and recent activity |
+| `/analytics` | Revenue, acquisition channels, and conversion trends |
+| `/products` | Product catalog, prices, categories, and inventory |
+| `/orders` | Orders, payments, and fulfillment statuses |
+| `/customers` | Customer activity, orders, and total spending |
+| `/notifications` | Store alerts and recent events |
+| `/settings` | Dashboard account and security settings |
+
+Legacy routes for projects, tasks, and users redirect to their corresponding e-commerce pages.
 
 ## Tech stack
 
-- [Astro](https://astro.build/) — application structure and rendering
-- [TypeScript](https://www.typescriptlang.org/) — typed application code
-- [Tailwind CSS](https://tailwindcss.com/) — styling
-- [React](https://react.dev/) — interactive islands when needed
-- [Apache ECharts](https://echarts.apache.org/) — data visualization
-- [Lucide](https://lucide.dev/) — consistent SVG icons
+- [Astro](https://astro.build/) for routing, rendering, and application structure
+- [TypeScript](https://www.typescriptlang.org/) for typed data and application logic
+- [Tailwind CSS](https://tailwindcss.com/) for responsive styling
+- Native SVG and CSS for lightweight revenue and conversion charts
+- [Apache ECharts](https://echarts.apache.org/) for the lazy-loaded acquisition chart
+- [Lucide](https://lucide.dev/) for consistent SVG icons
+
+## Requirements
+
+- Node.js 22.12 or later
+- npm
 
 ## Getting started
 
-### Requirements
-
-- Node.js 22.12 or newer
-- npm
-
-### Installation
-
 ```bash
-git clone https://github.com/AndrixNg1/astro-admin-dashboard.git
-cd astro-admin-dashboard
+git clone https://github.com/AndrixNg1/AstoShop-dashboard.git
+cd AstoShop-dashboard
 npm install
 npm run dev
 ```
@@ -62,7 +76,7 @@ Open [http://localhost:4321](http://localhost:4321) in your browser.
 
 ## Available commands
 
-Run commands from the project root:
+Run all commands from the project root.
 
 | Command | Description |
 | --- | --- |
@@ -74,47 +88,43 @@ Run commands from the project root:
 
 ## Project structure
 
-The repository currently follows this structure and will grow as the roadmap is implemented:
-
-```text
-.
-├── public/                 # Static assets
-├── src/
-│   ├── assets/             # Images and global styles
-│   ├── components/         # Astro and framework components
-│   ├── layouts/            # Shared page layouts
-│   └── pages/              # File-based routes
-├── astro.config.mjs        # Astro, React, and Tailwind configuration
-├── package.json            # Scripts and dependencies
-└── tsconfig.json           # TypeScript configuration
-```
-
-The target architecture separates reusable UI, dashboard components, charts, typed mock data, and shared types:
-
 ```text
 src/
+├── assets/              # Global styles and client-side scripts
+├── charts/              # ECharts configuration
 ├── components/
-│   ├── ui/
-│   ├── dashboard/
-│   └── charts/
-├── data/
-├── layouts/
-├── pages/
-└── types/
+│   ├── charts/          # Data visualization components
+│   ├── dashboard/       # Dashboard-specific components
+│   └── ui/              # Reusable interface components
+├── data/                # Typed local mock data
+├── layouts/             # Shared page layouts
+├── pages/               # File-based Astro routes
+└── types/               # Shared TypeScript types
 ```
 
-## Customization
+## Customization and backend integration
 
 - Update global styles in `src/assets/styles/app.css`.
 - Add or modify routes in `src/pages/`.
-- Configure integrations in `astro.config.mjs`.
-- Replace the local TypeScript mock data with API calls when connecting a backend.
+- Configure charts in `src/components/charts/` and `src/charts/`.
+- Replace the mock data in `src/data/` with calls to your API.
+- Configure Astro and Vite integrations in `astro.config.mjs`.
 
-Keep interactive JavaScript focused on components that need it so the dashboard remains fast and lightweight.
+The dashboard can be connected to a custom API or adapted for platforms such as Shopify, WooCommerce, Medusa, or Saleor. No commerce connector is included yet.
+
+## Roadmap
+
+- Product, variant, and category creation workflows
+- Interactive order, payment, and fulfillment management
+- Detailed customer profiles and purchase history
+- Best-selling products and abandoned-cart analytics
+- Filters by date range, sales channel, and status
+- Loading, empty, and error states for remote data
+- Authentication, authorization, and backend integration
 
 ## Contributing
 
-Contributions, bug reports, and feature ideas are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+Contributions, bug reports, and feature proposals are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md) before opening a pull request.
 
 ## License
 

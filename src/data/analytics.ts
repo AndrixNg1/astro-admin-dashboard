@@ -1,10 +1,10 @@
 import type { AnalyticsMetric } from "../types";
 
 export const analyticsMetrics: AnalyticsMetric[] = [
-	{ label: "Revenus", value: "48 250 $", change: 12.5 },
-	{ label: "Visiteurs", value: "24 892", change: 8.2 },
-	{ label: "Conversions", value: "3,8 %", change: 1.4 },
-	{ label: "Commandes", value: "1 429", change: -2.1 },
+	{ label: "Chiffre d'affaires", value: "48 250 $", change: 12.5 },
+	{ label: "Commandes", value: "1 429", change: 8.2 },
+	{ label: "Panier moyen", value: "33,77 $", change: 4.6 },
+	{ label: "Taux de conversion", value: "3,8 %", change: 1.4 },
 ];
 
 export const monthlyRevenue = [32, 38, 35, 44, 49, 53, 58, 62, 68, 72, 77, 84];
